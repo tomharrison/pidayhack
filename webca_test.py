@@ -1,9 +1,23 @@
 import cv2
 import numpy as np
 import scipy
+import math
 from scipy import ndimage
 
 
+def compare_pi(our_pi):
+    global pi
+    error = (abs(pi - our_pi) / pi) * 100
+    return error
+
+def calc_radius(C,A):
+    global pi
+    r1 = (C/pi)/2
+    r2 = math.sqrt(A/pi)
+    r3 = (r1+r2)/2
+    return r3
+
+#Calculate our version of Pi
 def calc_pi(C,A):
     return float(C**2)/float(4*A)
 
@@ -63,3 +77,5 @@ while(True):
 # When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+
+pi = 3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679
