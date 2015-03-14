@@ -30,7 +30,7 @@ def im_thresh(im):
     ndimage.morphology.binary_closing(im2,struct,output=im2)
     return im2
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 while(True):
     # Capture frame-by-frame
@@ -42,8 +42,23 @@ while(True):
     # Display the resulting frame
     gray = im_thresh(gray)
     cv2.imshow('frame',gray)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    #
+    #img(i,j)
+    #row = img.shape[0]
+    #cols = img.shape[1]
+    
+    confirm = raw_input("Confirm Y/N")
+    if confirm == 'Y':
         break
+    else:
+        continue
+
+
+
+
+#  if cv2.waitKey(1) & 0xFF == ord('q'):
+#       break
+
 
 # When everything done, release the capture
 cap.release()
