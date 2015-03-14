@@ -46,6 +46,7 @@ def im_thresh(im):
 
 cap = cv2.VideoCapture(0)
 
+print "Type q with the camera window in focus to hold the image"
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
@@ -61,17 +62,15 @@ while(True):
     #row = img.shape[0]
     #cols = img.shape[1]
     
-    confirm = raw_input("Confirm Y/N")
-    if confirm == 'Y':
-        break
-    else:
-        continue
 
 
 
-
-#  if cv2.waitKey(1) & 0xFF == ord('q'):
-#       break
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        confirm = raw_input("Confirm Y/N")
+        if confirm == 'Y':
+            break
+        else:
+            continue
 
 
 # When everything done, release the capture
